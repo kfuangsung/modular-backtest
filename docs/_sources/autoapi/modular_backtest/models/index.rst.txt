@@ -1,0 +1,21 @@
+modular_backtest.models
+=======================
+
+.. py:module:: modular_backtest.models
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/models/abstract/index
+   /autoapi/modular_backtest/models/asset_selection/index
+   /autoapi/modular_backtest/models/handler/index
+   /autoapi/modular_backtest/models/order_execution/index
+   /autoapi/modular_backtest/models/portfolio_construction/index
+   /autoapi/modular_backtest/models/risk_management/index
+   /autoapi/modular_backtest/models/signal_generation/index
+
+

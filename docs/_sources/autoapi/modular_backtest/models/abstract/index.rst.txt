@@ -1,0 +1,235 @@
+modular_backtest.models.abstract
+================================
+
+.. py:module:: modular_backtest.models.abstract
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.models.abstract.AssetSelection
+   modular_backtest.models.abstract.SignalGeneration
+   modular_backtest.models.abstract.PortfolioConstruction
+   modular_backtest.models.abstract.RiskManagement
+   modular_backtest.models.abstract.OrderExecution
+
+
+Module Contents
+---------------
+
+.. py:class:: AssetSelection
+
+   Bases: :py:obj:`abc.ABC`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.abstract.AssetSelection
+      :parts: 1
+      :private-bases:
+
+
+   Abstract base class for asset selection strategies.
+
+   Asset selection strategies are used to select the assets to be traded based on
+   the given data.
+
+   .. attribute:: None
+
+      
+
+   .. method:: run(context
+
+      Context, data: BarData) -> AssetHandler:
+      Runs the asset selection process.
+      
+
+   :raises None:
+
+
+   .. py:method:: run(context, data)
+      :abstractmethod:
+
+
+      Runs the asset selection process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+
+      :returns: The handler containing the selected assets.
+      :rtype: AssetHandler
+
+
+
+.. py:class:: SignalGeneration
+
+   Bases: :py:obj:`abc.ABC`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.abstract.SignalGeneration
+      :parts: 1
+      :private-bases:
+
+
+   Abstract base class for signal generation strategies.
+
+   Signal generation strategies are responsible for generating signals based
+   on the given data and assets.
+
+   .. attribute:: None
+
+      
+
+   .. method:: run(context, data, assets)
+
+      
+      Runs the signal generation process.
+      
+
+   :raises None:
+
+
+   .. py:method:: run(context, data, assets)
+      :abstractmethod:
+
+
+      Runs the signal generation process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param assets: The assets of the algorithm.
+      :type assets: AssetHandler
+
+      :returns: The handler containing the generated signals.
+      :rtype: SignalHandler
+
+
+
+.. py:class:: PortfolioConstruction
+
+   Bases: :py:obj:`abc.ABC`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.abstract.PortfolioConstruction
+      :parts: 1
+      :private-bases:
+
+
+   Abstract base class for portfolio construction strategies.
+
+   Portfolio construction strategies are used to convert signals into
+   allocations based on the given data.
+
+   .. attribute:: None
+
+      
+
+   .. method:: run(context, data, signals)
+
+      
+      Runs the portfolio construction process.
+      
+
+   :raises None:
+
+
+   .. py:method:: run(context, data, signals)
+      :abstractmethod:
+
+
+      Runs the portfolio construction process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param signals: The handler with signal information.
+      :type signals: SignalHandler
+
+      :returns: The handler containing the generated allocations.
+      :rtype: AllocationHandler
+
+
+
+.. py:class:: RiskManagement
+
+   Bases: :py:obj:`abc.ABC`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.abstract.RiskManagement
+      :parts: 1
+      :private-bases:
+
+
+   Abstract base class for risk management strategies.
+
+   Risk management strategies are used to adjust the allocations based on
+   the given context and data.
+
+   .. method:: run(context, data, allocations)
+
+      
+      Runs the risk management process.
+      
+
+
+   .. py:method:: run(context, data, allocations)
+      :abstractmethod:
+
+
+      Runs the risk management process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param allocations: The handler with allocation information.
+      :type allocations: AllocationHandler
+
+      :returns: The handler containing the adjusted allocations.
+      :rtype: AllocationHandler
+
+
+
+.. py:class:: OrderExecution
+
+   Bases: :py:obj:`abc.ABC`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.abstract.OrderExecution
+      :parts: 1
+      :private-bases:
+
+
+   Abstract base class for order execution strategies.
+
+   Order execution strategies are used to execute the generated allocations.
+
+   :param context: The context of the algorithm.
+   :type context: Context
+   :param data: The data of the algorithm.
+   :type data: BarData
+   :param allocations: The handler with allocation information.
+   :type allocations: AllocationHandler
+
+   :returns: The handler containing the generated orders.
+   :rtype: OrderHandler
+
+
+   .. py:method:: run(context, data, allocations)
+      :abstractmethod:
+
+
+      Runs the order execution process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param allocations: The handler with allocation information.
+      :type allocations: AllocationHandler
+
+      :returns: The handler containing the generated orders.
+      :rtype: OrderHandler
+
+
+

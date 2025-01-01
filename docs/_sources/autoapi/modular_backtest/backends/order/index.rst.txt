@@ -1,0 +1,364 @@
+modular_backtest.backends.order
+===============================
+
+.. py:module:: modular_backtest.backends.order
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.backends.order.order_config
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.backends.order.Order
+   modular_backtest.backends.order.OrderShare
+   modular_backtest.backends.order.OrderValue
+   modular_backtest.backends.order.OrderPercent
+   modular_backtest.backends.order.OrderTargetShare
+   modular_backtest.backends.order.OrderTargetValue
+   modular_backtest.backends.order.OrderTargetPercent
+   modular_backtest.backends.order.OrderHandler
+
+
+Module Contents
+---------------
+
+.. py:data:: order_config
+
+.. py:class:: Order
+
+.. py:class:: OrderShare
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderShare
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to buy or sell a specific number of shares of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: shares
+
+      The number of shares to buy or sell.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: shares
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderValue
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderValue
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to transact a specific value of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: value
+
+      The monetary value of the asset to buy or sell.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: value
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderPercent
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderPercent
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to transact a percent of the portfolio value of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: percent
+
+      The percentage of the portfolio value to buy or sell.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: percent
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderTargetShare
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderTargetShare
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to buy or sell a target number of shares of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: target_shares
+
+      The target number of shares to reach.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: target_shares
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderTargetValue
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderTargetValue
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to buy or sell a target monetary value of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: target_value
+
+      The target monetary value to reach.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: target_value
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderTargetPercent
+
+   Bases: :py:obj:`Order`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.order.OrderTargetPercent
+      :parts: 1
+      :private-bases:
+
+
+   Represents an order to buy or sell a target percentage of the current position of an asset.
+
+   .. attribute:: asset
+
+      The financial asset involved in the order.
+
+      :type: Asset
+
+   .. attribute:: target_percent
+
+      The target percentage of the current position to reach.
+
+      :type: RealNumber
+
+   .. attribute:: uuid
+
+      A unique identifier for the order, automatically generated.
+
+      :type: UUID
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+
+
+   .. py:attribute:: target_percent
+      :type:  modular_backtest.types.RealNumber
+
+
+   .. py:attribute:: uuid
+      :type:  uuid.UUID
+      :value: None
+
+
+
+.. py:class:: OrderHandler
+
+   A container for a sequence of orders. Provides an interface for iterating,
+   checking the length, adding orders, and clearing the container.
+
+   .. attribute:: orders
+
+      The sequence of orders in the container.
+
+      :type: Sequence[Order]
+
+
+   .. py:attribute:: orders
+      :type:  collections.abc.Sequence[Order]
+      :value: None
+
+
+
+   .. py:method:: _orders_as_list(value)
+      :classmethod:
+
+
+      Converts the orders field to a list in-place.
+
+      :param value: The value to convert.
+      :type value: Sequence[Order]
+
+      :returns: The converted value.
+      :rtype: list[Order]
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the orders in the container.
+
+      :Yields: *Iterator[Order]* -- An iterator over the orders.
+
+
+
+   .. py:method:: __len__()
+
+      Returns the number of orders in the container.
+
+      :returns: The number of orders.
+      :rtype: int
+
+
+
+   .. py:method:: push(order)
+
+      Adds an order to the container.
+
+      :param order: The order to add.
+      :type order: Order
+
+
+
+   .. py:method:: clear()
+
+      Clears the container.
+
+
+

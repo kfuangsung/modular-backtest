@@ -1,0 +1,69 @@
+modular_backtest.models.risk_management
+=======================================
+
+.. py:module:: modular_backtest.models.risk_management
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/models/risk_management/void/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.models.risk_management.VoidRiskManagement
+
+
+Package Contents
+----------------
+
+.. py:class:: VoidRiskManagement
+
+   Bases: :py:obj:`modular_backtest.models.abstract.RiskManagement`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.risk_management.VoidRiskManagement
+      :parts: 1
+      :private-bases:
+
+
+   Does not perform any risk management on the given allocations.
+
+   The returned allocation handler is a copy of the input allocation handler.
+
+   .. attribute:: None
+
+      
+
+   .. method:: run(context
+
+      Context, data: BarData, allocations: AllocationHandler)
+      -> AllocationHandler:
+      Runs the risk management process.
+      
+
+   :raises None:
+
+
+   .. py:method:: run(context, data, allocations)
+
+      Runs the risk management process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param allocations: The handler with allocation information.
+      :type allocations: AllocationHandler
+
+      :returns: The handler with the same allocations without any changes.
+      :rtype: AllocationHandler
+
+
+

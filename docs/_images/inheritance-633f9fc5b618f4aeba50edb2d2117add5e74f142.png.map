@@ -1,0 +1,5 @@
+<map id="inheritance22f40dcc2f" name="inheritance22f40dcc2f">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="5,5,77,31"/>
+<area shape="rect" id="node2" href="../../abstract/index.html#modular_backtest.models.abstract.SignalGeneration" target="_top" title="Abstract base class for signal generation strategies." alt="" coords="125,5,260,31"/>
+<area shape="rect" id="node3" href="#modular_backtest.models.signal_generation.static.StaticSignalGeneration" target="_top" title="A signal generation strategy that generates a constant signal for each asset." alt="" coords="308,5,479,31"/>
+</map>

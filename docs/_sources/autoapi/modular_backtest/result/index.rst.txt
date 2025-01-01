@@ -1,0 +1,46 @@
+modular_backtest.result
+=======================
+
+.. py:module:: modular_backtest.result
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.result.BacktestResult
+
+
+Module Contents
+---------------
+
+.. py:class:: BacktestResult
+
+   Holds the results of a backtest.
+
+   .. attribute:: data
+
+      The result of the backtest.
+
+      :type: pd.DataFrame
+
+
+   .. py:attribute:: data
+      :type:  pandas.DataFrame
+
+
+   .. py:method:: from_zipline_output(out)
+      :classmethod:
+
+
+      Creates a BacktestResult from a zipline output.
+
+      :param out: The DataFrame returned by zipline.
+      :type out: pd.DataFrame
+
+      :returns: A BacktestResult with the data from the backtest.
+      :rtype: BacktestResult
+
+
+

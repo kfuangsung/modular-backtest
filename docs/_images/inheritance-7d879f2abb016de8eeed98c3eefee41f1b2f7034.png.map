@@ -1,0 +1,4 @@
+<map id="inheritance436bc51cbc" name="inheritance436bc51cbc">
+<area shape="rect" id="node1" href="#modular_backtest.backends.order.Order" target="_top" title="Order" alt="" coords="5,5,77,31"/>
+<area shape="rect" id="node2" href="#modular_backtest.backends.order.OrderTargetShare" target="_top" title="Represents an order to buy or sell a target number of shares of an asset." alt="" coords="125,5,260,31"/>
+</map>

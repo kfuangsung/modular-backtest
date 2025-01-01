@@ -1,0 +1,5 @@
+<map id="inheritance2a40b53990" name="inheritance2a40b53990">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="5,5,77,31"/>
+<area shape="rect" id="node2" href="../abstract/index.html#modular_backtest.models.abstract.RiskManagement" target="_top" title="Abstract base class for risk management strategies." alt="" coords="125,5,261,31"/>
+<area shape="rect" id="node3" href="void/index.html#modular_backtest.models.risk_management.void.VoidRiskManagement" target="_top" title="Does not perform any risk management on the given allocations." alt="" coords="309,5,473,31"/>
+</map>

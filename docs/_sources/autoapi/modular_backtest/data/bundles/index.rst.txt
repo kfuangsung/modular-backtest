@@ -1,0 +1,15 @@
+modular_backtest.data.bundles
+=============================
+
+.. py:module:: modular_backtest.data.bundles
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/data/bundles/yahoo/index
+
+

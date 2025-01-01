@@ -1,0 +1,74 @@
+modular_backtest.factors.handler
+================================
+
+.. py:module:: modular_backtest.factors.handler
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.factors.handler.FactorHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: FactorHandler
+
+   A container for a collection of :class:`~zipline.pipeline.factors.Factor`.
+
+   .. attribute:: factors
+
+      The collection of
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :type: dict[str, ~zipline.pipeline.factors.Factor]
+
+
+   .. py:attribute:: factors
+      :type:  dict[str, zipline.pipeline.factors.Factor]
+      :value: None
+
+
+
+   .. py:method:: __call__()
+
+      Returns a :class:`~zipline.pipeline.Pipeline` from the contained
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :returns:
+
+                A :class:`~zipline.pipeline.Pipeline`
+                    containing the contained :class:`~zipline.pipeline.factors.Factor`.
+      :rtype: ~zipline.pipeline.Pipeline
+
+
+
+   .. py:method:: insert(name, factor)
+
+      Inserts a :class:`~zipline.pipeline.factors.Factor` into the
+      container.
+
+      :param name: The name of the :class:`~zipline.pipeline.factors.Factor`.
+      :type name: str
+      :param factor: The
+                     :class:`~zipline.pipeline.factors.Factor` to insert.
+      :type factor: ~zipline.pipeline.factors.Factor
+
+
+
+   .. py:method:: make()
+
+      Returns a :class:`~zipline.pipeline.Pipeline` from the contained
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :returns:
+
+                A :class:`~zipline.pipeline.Pipeline`
+                    containing the contained :class:`~zipline.pipeline.factors.Factor`.
+      :rtype: ~zipline.pipeline.Pipeline
+
+
+

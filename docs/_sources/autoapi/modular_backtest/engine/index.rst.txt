@@ -1,0 +1,167 @@
+modular_backtest.engine
+=======================
+
+.. py:module:: modular_backtest.engine
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.engine.InitializeFunction
+   modular_backtest.engine.HandleDataFunction
+   modular_backtest.engine.BeforeTradingStartFunction
+   modular_backtest.engine.AnalyzeFunction
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.engine.BacktestEngine
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   modular_backtest.engine.make_initialize
+   modular_backtest.engine.make_before_trading_start
+
+
+Module Contents
+---------------
+
+.. py:data:: InitializeFunction
+   :type:  TypeAlias
+   :value: Callable[[Context], None]
+
+
+.. py:data:: HandleDataFunction
+   :type:  TypeAlias
+   :value: Callable[[Context, BarData], None]
+
+
+.. py:data:: BeforeTradingStartFunction
+   :type:  TypeAlias
+   :value: Callable[[Context, BarData], None]
+
+
+.. py:data:: AnalyzeFunction
+   :type:  TypeAlias
+   :value: Callable[[Context, pd.DataFrame], None]
+
+
+.. py:function:: make_initialize(models, factors, commission, slippage, benchmark = None)
+
+   Creates a Zipline initialize function that sets up a pipeline with the given factors,
+   sets the given commission and slippage models, and schedules the given models to be
+   called every day.
+
+   :param models: The models to be scheduled.
+   :param factors: The factors to be used in the pipeline.
+   :param commission: The commission model to be used.
+   :param slippage: The slippage model to be used.
+   :param benchmark: The benchmark asset to be used, or None to not use a benchmark.
+
+   :returns: An initialize function that sets up the given models and pipeline.
+
+
+.. py:function:: make_before_trading_start()
+
+   Creates a Zipline before_trading_start function that fetches the factors
+   from the pipeline and stores them in the context.
+
+   :returns: A before_trading_start function that fetches the factors.
+
+
+.. py:class:: BacktestEngine(/, **data)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.engine.BacktestEngine
+      :parts: 1
+      :private-bases:
+
+
+   Runs a backtest of a given set of models.
+
+   The models are scheduled to run every day, and the results are stored in a
+   BacktestResult object.
+
+   :param models: The models to be scheduled.
+   :param factors: The factors to be used in the pipeline.
+   :param capital: The starting capital for the backtest.
+   :param commission: The commission model to be used.
+   :param slippage: The slippage model to be used.
+
+
+   .. py:attribute:: model_config
+
+      Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict].
+
+
+   .. py:attribute:: models
+      :type:  modular_backtest.models.handler.ModelHandler
+
+
+   .. py:attribute:: factors
+      :type:  modular_backtest.factors.handler.FactorHandler
+
+
+   .. py:attribute:: capital
+      :type:  modular_backtest.types.RealNumber
+      :value: None
+
+
+
+   .. py:attribute:: commission
+      :type:  zipline.finance.commission.CommissionModel
+      :value: None
+
+
+
+   .. py:attribute:: slippage
+      :type:  zipline.finance.slippage.SlippageModel
+      :value: None
+
+
+
+   .. py:attribute:: _initialize
+      :type:  InitializeFunction
+      :value: None
+
+
+
+   .. py:attribute:: _before_trading_start
+      :type:  BeforeTradingStartFunction
+      :value: None
+
+
+
+   .. py:method:: _make_functions()
+
+      Initializes the _initialize and _before_trading_start functions.
+
+      Sets up the functions used for initialization and actions
+      before trading starts in the backtest. These functions are
+      generated using the provided models, factors, commission, and
+      slippage settings.
+
+
+
+   .. py:method:: run(start, end, bundle = 'quandl')
+
+      Runs the backtest.
+
+      :param start: The start date of the backtest.
+      :param end: The end date of the backtest.
+      :param bundle: The data bundle to use. Defaults to "quandl".
+
+      :returns: A BacktestResult object containing the results of the backtest.
+
+
+

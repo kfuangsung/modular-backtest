@@ -1,0 +1,36 @@
+modular_backtest
+================
+
+.. py:module:: modular_backtest
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/backends/index
+   /autoapi/modular_backtest/data/index
+   /autoapi/modular_backtest/engine/index
+   /autoapi/modular_backtest/factors/index
+   /autoapi/modular_backtest/models/index
+   /autoapi/modular_backtest/result/index
+   /autoapi/modular_backtest/types/index
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.__version__
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :value: '0.0.1.post2'
+
+

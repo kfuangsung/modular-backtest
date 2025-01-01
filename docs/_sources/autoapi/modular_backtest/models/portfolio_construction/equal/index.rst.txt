@@ -1,0 +1,60 @@
+modular_backtest.models.portfolio_construction.equal
+====================================================
+
+.. py:module:: modular_backtest.models.portfolio_construction.equal
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.models.portfolio_construction.equal.EqualWeightPortfolioConstruction
+
+
+Module Contents
+---------------
+
+.. py:class:: EqualWeightPortfolioConstruction
+
+   Bases: :py:obj:`modular_backtest.models.abstract.PortfolioConstruction`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.models.portfolio_construction.equal.EqualWeightPortfolioConstruction
+      :parts: 1
+      :private-bases:
+
+
+   Equal weight portfolio construction.
+
+   This strategy allocates the same weight to each asset in the universe.
+
+   .. attribute:: None
+
+      
+
+   .. method:: run(context
+
+      Context, data: BarData, signals: SignalHandler)
+      -> AllocationHandler:
+      Runs the portfolio construction process.
+      
+
+   :raises None:
+
+
+   .. py:method:: run(context, data, signals)
+
+      Runs the portfolio construction process.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+      :param signals: The handler with signal information.
+      :type signals: SignalHandler
+
+      :returns: The handler containing the generated allocations.
+      :rtype: AllocationHandler
+
+
+

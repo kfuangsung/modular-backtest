@@ -1,0 +1,11 @@
+<map id="inheritance53b55ae114" name="inheritance53b55ae114">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="4,65,63,85"/>
+<area shape="rect" id="node3" title="Base class for objects that can appear in the compute graph of a" alt="" coords="102,65,160,85"/>
+<area shape="rect" id="node2" title="A Term that should be computed from a tuple of inputs." alt="" coords="211,4,319,25"/>
+<area shape="rect" id="node7" title="Pipeline API expression producing a numerical or date&#45;valued output." alt="" coords="425,44,483,65"/>
+<area shape="rect" id="node5" title="Validation mixin enforcing that a Term gets a positive WindowLength" alt="" coords="370,85,538,106"/>
+<area shape="rect" id="node6" title="Mixin for user&#45;defined rolling&#45;window Terms." alt="" coords="398,125,511,146"/>
+<area shape="rect" id="node8" title="Validation mixin enforcing that a term has a specific dtype." alt="" coords="199,44,332,65"/>
+<area shape="rect" id="node4" title="Base class for user&#45;defined Factors." alt="" coords="577,85,666,106"/>
+<area shape="rect" id="node9" href="#modular_backtest.factors.sma.SMA" target="_top" title="Simple Moving Average (SMA) factor." alt="" coords="705,85,764,106"/>
+</map>

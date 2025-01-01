@@ -1,0 +1,140 @@
+modular_backtest.data.bundles.yahoo
+===================================
+
+.. py:module:: modular_backtest.data.bundles.yahoo
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.data.bundles.yahoo.NAME
+   modular_backtest.data.bundles.yahoo.UINT32_MAX
+   modular_backtest.data.bundles.yahoo.log
+   modular_backtest.data.bundles.yahoo.OHLC
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   modular_backtest.data.bundles.yahoo.get_yahoo_symbols
+   modular_backtest.data.bundles.yahoo.parse_data
+   modular_backtest.data.bundles.yahoo.fetch_yahoo_data
+   modular_backtest.data.bundles.yahoo.gen_yahoo_asset_metadata
+   modular_backtest.data.bundles.yahoo.yahoo_finance_bundles
+
+
+Module Contents
+---------------
+
+.. py:data:: NAME
+   :value: 'yahoo-finance'
+
+
+.. py:data:: UINT32_MAX
+
+.. py:data:: log
+
+.. py:data:: OHLC
+
+.. py:function:: get_yahoo_symbols(environ)
+
+   Get the list of Yahoo Finance symbols from the environment.
+
+   First, looks for the "YAHOO_SYMBOLS" environment variable. If it is not set,
+   then uses the default list of equity symbols.
+
+   :returns: The list of Yahoo Finance symbols.
+   :rtype: list[str]
+
+
+.. py:function:: parse_data(data)
+
+   Processes and cleans the input DataFrame containing financial data.
+
+   The function performs the following operations:
+   - Resets the index of the DataFrame.
+   - Ensures that the "Dividends" and "Stock Splits" columns exist, initializing them to 0 if missing.
+   - Fills missing values in the "Dividends", "Stock Splits", and "Volume" columns with 0.
+   - Renames columns according to a predefined mapping.
+   - Replaces negative values in the OHLC columns with NaN.
+   - Forward fills missing values.
+   - Drops any remaining rows with NaN values.
+
+   :param data: The input DataFrame with financial data.
+   :type data: pd.DataFrame
+
+   :returns: The cleaned and processed DataFrame.
+   :rtype: pd.DataFrame
+
+
+.. py:function:: fetch_yahoo_data(symbols, batch_size = 1000)
+
+   Downloads the historical data for the given list of symbols from Yahoo Finance.
+
+   :param symbols: The list of symbols to download.
+   :type symbols: list[str]
+   :param batch_size: The number of symbols to download in each batch. Defaults to 1000.
+   :type batch_size: int, optional
+
+   :returns: The downloaded data, with columns renamed and processed.
+   :rtype: pd.DataFrame
+
+
+.. py:function:: gen_yahoo_asset_metadata(data, show_progress)
+
+   Generate asset metadata for Yahoo Finance data.
+
+   This function processes the input DataFrame to generate metadata for each
+   asset symbol. It calculates the start and end dates of the data, assigns
+   an exchange, and determines the auto-close date for each asset.
+
+   :param data: A DataFrame containing asset data with columns
+                "symbol" and "date".
+   :type data: pd.DataFrame
+   :param show_progress: If True, logs the progress of metadata generation.
+   :type show_progress: bool
+
+   :returns: A DataFrame containing metadata for each asset, including
+             "symbol", "start_date", "end_date", "exchange", and "auto_close_date".
+   :rtype: pd.DataFrame
+
+
+.. py:function:: yahoo_finance_bundles(environ, asset_db_writer, minute_bar_writer, daily_bar_writer, adjustment_writer, calendar, start_session, end_session, cache, show_progress, output_dir)
+
+   Ingests financial data from Yahoo Finance into the zipline framework.
+
+   This function fetches historical financial data for specified symbols
+   from Yahoo Finance, processes the data, and writes it into the
+   appropriate database tables for use with the zipline backtesting library.
+
+   :param environ: Environment variables containing configuration
+                   such as the symbols to fetch.
+   :type environ: Mapping
+   :param asset_db_writer: Writer for the asset database.
+   :type asset_db_writer: AssetDBWriter
+   :param minute_bar_writer: Writer for minute-level bar data.
+   :type minute_bar_writer: BcolzMinuteBarWriter
+   :param daily_bar_writer: Writer for daily bar data.
+   :type daily_bar_writer: BcolzDailyBarWriter
+   :param adjustment_writer: Writer for corporate actions.
+   :type adjustment_writer: SQLiteAdjustmentWriter
+   :param calendar: Trading calendar used for date calculations.
+   :type calendar: TradingCalendar
+   :param start_session: Start date for fetching data.
+   :type start_session: pd.Timestamp
+   :param end_session: End date for fetching data.
+   :type end_session: pd.Timestamp
+   :param cache: Cache for storing intermediate data.
+   :type cache: Mapping
+   :param show_progress: If True, display progress information.
+   :type show_progress: bool
+   :param output_dir: Directory for output data.
+   :type output_dir: os.PathLike
+
+   :raises ValueError: If data fetching fails.
+
+

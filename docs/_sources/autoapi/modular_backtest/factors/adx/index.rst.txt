@@ -1,0 +1,86 @@
+modular_backtest.factors.adx
+============================
+
+.. py:module:: modular_backtest.factors.adx
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.factors.adx.PERIOD_MULTIPLIER
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.factors.adx.ADX
+
+
+Module Contents
+---------------
+
+.. py:data:: PERIOD_MULTIPLIER
+   :value: 2
+
+
+.. py:class:: ADX(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.adx.ADX
+      :parts: 1
+      :private-bases:
+
+
+   Average Directional Index (ADX) factor.
+
+   This factor computes the ADX for given high, low, and close prices over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of high, low, and close prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time period for ADX calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, high, low, close, timeperiod)
+
+      Compute the ADX values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed ADX values.
+      :type out: np.ndarray
+      :param high: High prices of the assets.
+      :type high: np.ndarray
+      :param low: Low prices of the assets.
+      :type low: np.ndarray
+      :param close: Close prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the ADX.
+      :type timeperiod: int
+
+
+

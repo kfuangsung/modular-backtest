@@ -1,0 +1,88 @@
+modular_backtest.backends.allocation
+====================================
+
+.. py:module:: modular_backtest.backends.allocation
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.backends.allocation.Allocation
+   modular_backtest.backends.allocation.AllocationHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: Allocation
+
+   Represents an allocation of a specific asset with a given weight.
+
+   .. attribute:: asset
+
+      The asset being allocated.
+
+      :type: Asset
+
+   .. attribute:: weight
+
+      The weight of the allocation, can be an integer or float.
+
+      :type: int or float
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+      :value: None
+
+
+
+   .. py:attribute:: weight
+      :type:  int | float
+      :value: None
+
+
+
+.. py:class:: AllocationHandler
+
+   Handles a collection of Allocation objects.
+
+   .. attribute:: allocs
+
+      A list of Allocation objects.
+
+      :type: list[Allocation]
+
+
+   .. py:attribute:: allocs
+      :type:  list[Allocation]
+      :value: None
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the allocations.
+
+      :returns: An iterator over the Allocation objects.
+      :rtype: Iterator[Allocation]
+
+
+
+   .. py:method:: push(alloc)
+
+      Adds an Allocation to the handler.
+
+      :param alloc: The Allocation to be added.
+      :type alloc: Allocation
+
+
+
+   .. py:method:: clear()
+
+      Clears all allocations from the handler.
+
+
+

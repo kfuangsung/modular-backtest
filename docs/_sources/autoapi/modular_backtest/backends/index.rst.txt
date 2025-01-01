@@ -1,0 +1,343 @@
+modular_backtest.backends
+=========================
+
+.. py:module:: modular_backtest.backends
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/backends/allocation/index
+   /autoapi/modular_backtest/backends/api/index
+   /autoapi/modular_backtest/backends/asset/index
+   /autoapi/modular_backtest/backends/commission/index
+   /autoapi/modular_backtest/backends/execution/index
+   /autoapi/modular_backtest/backends/order/index
+   /autoapi/modular_backtest/backends/signal/index
+   /autoapi/modular_backtest/backends/slippage/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.backends.Allocation
+   modular_backtest.backends.AllocationHandler
+   modular_backtest.backends.AssetHandler
+   modular_backtest.backends.Order
+   modular_backtest.backends.OrderHandler
+   modular_backtest.backends.Signal
+   modular_backtest.backends.SignalHandler
+   modular_backtest.backends.SignalSentiment
+
+
+Package Contents
+----------------
+
+.. py:class:: Allocation
+
+   Represents an allocation of a specific asset with a given weight.
+
+   .. attribute:: asset
+
+      The asset being allocated.
+
+      :type: Asset
+
+   .. attribute:: weight
+
+      The weight of the allocation, can be an integer or float.
+
+      :type: int or float
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+      :value: None
+
+
+
+   .. py:attribute:: weight
+      :type:  int | float
+      :value: None
+
+
+
+.. py:class:: AllocationHandler
+
+   Handles a collection of Allocation objects.
+
+   .. attribute:: allocs
+
+      A list of Allocation objects.
+
+      :type: list[Allocation]
+
+
+   .. py:attribute:: allocs
+      :type:  list[Allocation]
+      :value: None
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the allocations.
+
+      :returns: An iterator over the Allocation objects.
+      :rtype: Iterator[Allocation]
+
+
+
+   .. py:method:: push(alloc)
+
+      Adds an Allocation to the handler.
+
+      :param alloc: The Allocation to be added.
+      :type alloc: Allocation
+
+
+
+   .. py:method:: clear()
+
+      Clears all allocations from the handler.
+
+
+
+.. py:class:: AssetHandler
+
+   A handler for managing a collection of assets.
+
+   .. attribute:: assets
+
+      A list of assets managed by the handler.
+
+      :type: list[Asset]
+
+
+   .. py:attribute:: assets
+      :type:  list[modular_backtest.types.Asset]
+      :value: None
+
+
+
+   .. py:method:: __iter__()
+
+      Return an iterator over the assets.
+
+      :returns: An iterator over the assets in the handler.
+      :rtype: Iterator[Asset]
+
+
+
+   .. py:method:: __len__()
+
+      Return the number of assets in the handler.
+
+      :returns: The number of assets.
+      :rtype: int
+
+
+
+   .. py:method:: is_empty()
+
+      Check if the handler has no assets.
+
+      :returns: True if there are no assets, False otherwise.
+      :rtype: bool
+
+
+
+   .. py:method:: push(asset)
+
+      Add an asset to the handler.
+
+      :param asset: The asset to be added.
+      :type asset: Asset
+
+
+
+   .. py:method:: clear()
+
+      Remove all assets from the handler.
+
+
+
+.. py:class:: Order
+
+.. py:class:: OrderHandler
+
+   A container for a sequence of orders. Provides an interface for iterating,
+   checking the length, adding orders, and clearing the container.
+
+   .. attribute:: orders
+
+      The sequence of orders in the container.
+
+      :type: Sequence[Order]
+
+
+   .. py:attribute:: orders
+      :type:  collections.abc.Sequence[Order]
+      :value: None
+
+
+
+   .. py:method:: _orders_as_list(value)
+      :classmethod:
+
+
+      Converts the orders field to a list in-place.
+
+      :param value: The value to convert.
+      :type value: Sequence[Order]
+
+      :returns: The converted value.
+      :rtype: list[Order]
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the orders in the container.
+
+      :Yields: *Iterator[Order]* -- An iterator over the orders.
+
+
+
+   .. py:method:: __len__()
+
+      Returns the number of orders in the container.
+
+      :returns: The number of orders.
+      :rtype: int
+
+
+
+   .. py:method:: push(order)
+
+      Adds an order to the container.
+
+      :param order: The order to add.
+      :type order: Order
+
+
+
+   .. py:method:: clear()
+
+      Clears the container.
+
+
+
+.. py:class:: Signal
+
+   Represents a trading signal.
+
+   A trading signal is a suggestion to buy or sell an asset.
+
+   .. attribute:: asset
+
+      The asset to which the signal refers.
+
+      :type: Asset
+
+   .. attribute:: sentiment
+
+      The sentiment of the signal, i.e. whether it is a buy or sell signal.
+
+      :type: SignalSentiment
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+      :value: None
+
+
+
+   .. py:attribute:: sentiment
+      :type:  SignalSentiment
+      :value: None
+
+
+
+.. py:class:: SignalHandler
+
+   A container for a sequence of `Signal`s.
+
+   .. attribute:: signals
+
+      The sequence of `Signal`s in the container.
+
+      :type: list[Signal]
+
+   :returns: An iterator over the signals in the container.
+   :rtype: Iterator[Signal]
+
+
+   .. py:attribute:: signals
+      :type:  list[Signal]
+      :value: None
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the signals in the container.
+
+
+
+   .. py:method:: __len__()
+
+      Returns the number of signals in the container.
+
+
+
+   .. py:method:: is_empty()
+
+      Returns True if there are no signals in the container.
+
+
+
+   .. py:method:: push(signal)
+
+      Adds a signal to the container.
+
+
+
+   .. py:method:: clear()
+
+      Clears all signals from the container.
+
+
+
+.. py:class:: SignalSentiment
+
+   Bases: :py:obj:`enum.IntEnum`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.SignalSentiment
+      :parts: 1
+      :private-bases:
+
+
+   Represents the sentiment of a signal.
+
+
+   .. py:attribute:: POSITIVE
+      :value: 1
+
+
+
+   .. py:attribute:: NEUTRAL
+      :value: 0
+
+
+
+   .. py:attribute:: NEGATIVE
+      :value: -1
+
+
+

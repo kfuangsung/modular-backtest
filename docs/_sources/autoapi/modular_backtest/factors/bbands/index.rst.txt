@@ -1,0 +1,98 @@
+modular_backtest.factors.bbands
+===============================
+
+.. py:module:: modular_backtest.factors.bbands
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.factors.bbands.BBANDS
+
+
+Module Contents
+---------------
+
+.. py:class:: BBANDS(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.bbands.BBANDS
+      :parts: 1
+      :private-bases:
+
+
+   Bollinger Bands factor.
+
+   This factor calculates the Bollinger Bands for a given time period and
+   number of standard deviations. The Bollinger Bands are a technical
+   indicator that consists of a moving average and two standard deviations
+   plotted above and below the moving average.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of the
+      closing prices of the assets.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period and the number of standard deviations.
+
+      :type: tuple
+
+   .. attribute:: outputs
+
+      The output data for the factor, consisting of the
+      upper band, the middle band, and the lower band.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod', 'nbdevup', 'nbdevdn', 'matype')
+
+
+
+   .. py:attribute:: outputs
+      :value: ('upperband', 'middleband', 'lowerband')
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod, nbdevup, nbdevdn, matype)
+
+      Compute the Bollinger Bands for the given assets.
+
+      This method calculates the upper, middle, and lower Bollinger Bands using
+      the provided closing prices and parameters.
+
+      :param today: The current date for which to compute the Bollinger Bands.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed upper, middle, and lower bands.
+      :type out: np.recarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the bands.
+      :type timeperiod: int
+      :param nbdevup: The number of standard deviations for the upper band.
+      :type nbdevup: int
+      :param nbdevdn: The number of standard deviations for the lower band.
+      :type nbdevdn: int
+      :param matype: The type of moving average to use.
+      :type matype: MA_Type
+
+      :returns: None
+
+
+

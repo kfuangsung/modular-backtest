@@ -1,0 +1,87 @@
+modular_backtest.factors.ema
+============================
+
+.. py:module:: modular_backtest.factors.ema
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.factors.ema.PERIOD_MULTIPLIER
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.factors.ema.EMA
+
+
+Module Contents
+---------------
+
+.. py:data:: PERIOD_MULTIPLIER
+   :value: 2
+
+
+.. py:class:: EMA(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.ema.EMA
+      :parts: 1
+      :private-bases:
+
+
+   Exponential Moving Average (EMA) factor.
+
+   This factor computes the Exponential Moving Average for given closing prices
+   over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of closing
+      prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period for EMA calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod)
+
+      Compute the EMA values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the
+                     factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed EMA
+                  values.
+      :type out: np.ndarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the EMA.
+      :type timeperiod: int
+
+
+

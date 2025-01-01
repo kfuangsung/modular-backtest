@@ -1,0 +1,462 @@
+modular_backtest.factors
+========================
+
+.. py:module:: modular_backtest.factors
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/modular_backtest/factors/adx/index
+   /autoapi/modular_backtest/factors/atr/index
+   /autoapi/modular_backtest/factors/bbands/index
+   /autoapi/modular_backtest/factors/ema/index
+   /autoapi/modular_backtest/factors/handler/index
+   /autoapi/modular_backtest/factors/rsi/index
+   /autoapi/modular_backtest/factors/sma/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.factors.ADX
+   modular_backtest.factors.ATR
+   modular_backtest.factors.BBANDS
+   modular_backtest.factors.EMA
+   modular_backtest.factors.FactorHandler
+   modular_backtest.factors.RSI
+   modular_backtest.factors.SMA
+
+
+Package Contents
+----------------
+
+.. py:class:: ADX(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.ADX
+      :parts: 1
+      :private-bases:
+
+
+   Average Directional Index (ADX) factor.
+
+   This factor computes the ADX for given high, low, and close prices over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of high, low, and close prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time period for ADX calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, high, low, close, timeperiod)
+
+      Compute the ADX values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed ADX values.
+      :type out: np.ndarray
+      :param high: High prices of the assets.
+      :type high: np.ndarray
+      :param low: Low prices of the assets.
+      :type low: np.ndarray
+      :param close: Close prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the ADX.
+      :type timeperiod: int
+
+
+
+.. py:class:: ATR(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.ATR
+      :parts: 1
+      :private-bases:
+
+
+   Average True Range (ATR) factor.
+
+   This factor computes the average true range for given high, low, and close
+   prices over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of high, low,
+      and close prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period for ATR calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, high, low, close, timeperiod)
+
+      Compute the ATR values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the
+                     factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed ATR
+                  values.
+      :type out: np.ndarray
+      :param high: High prices of the assets.
+      :type high: np.ndarray
+      :param low: Low prices of the assets.
+      :type low: np.ndarray
+      :param close: Close prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the ATR.
+      :type timeperiod: int
+
+
+
+.. py:class:: BBANDS(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.BBANDS
+      :parts: 1
+      :private-bases:
+
+
+   Bollinger Bands factor.
+
+   This factor calculates the Bollinger Bands for a given time period and
+   number of standard deviations. The Bollinger Bands are a technical
+   indicator that consists of a moving average and two standard deviations
+   plotted above and below the moving average.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of the
+      closing prices of the assets.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period and the number of standard deviations.
+
+      :type: tuple
+
+   .. attribute:: outputs
+
+      The output data for the factor, consisting of the
+      upper band, the middle band, and the lower band.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod', 'nbdevup', 'nbdevdn', 'matype')
+
+
+
+   .. py:attribute:: outputs
+      :value: ('upperband', 'middleband', 'lowerband')
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod, nbdevup, nbdevdn, matype)
+
+      Compute the Bollinger Bands for the given assets.
+
+      This method calculates the upper, middle, and lower Bollinger Bands using
+      the provided closing prices and parameters.
+
+      :param today: The current date for which to compute the Bollinger Bands.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed upper, middle, and lower bands.
+      :type out: np.recarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the bands.
+      :type timeperiod: int
+      :param nbdevup: The number of standard deviations for the upper band.
+      :type nbdevup: int
+      :param nbdevdn: The number of standard deviations for the lower band.
+      :type nbdevdn: int
+      :param matype: The type of moving average to use.
+      :type matype: MA_Type
+
+      :returns: None
+
+
+
+.. py:class:: EMA(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.EMA
+      :parts: 1
+      :private-bases:
+
+
+   Exponential Moving Average (EMA) factor.
+
+   This factor computes the Exponential Moving Average for given closing prices
+   over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of closing
+      prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period for EMA calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod)
+
+      Compute the EMA values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the
+                     factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed EMA
+                  values.
+      :type out: np.ndarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the EMA.
+      :type timeperiod: int
+
+
+
+.. py:class:: FactorHandler
+
+   A container for a collection of :class:`~zipline.pipeline.factors.Factor`.
+
+   .. attribute:: factors
+
+      The collection of
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :type: dict[str, ~zipline.pipeline.factors.Factor]
+
+
+   .. py:attribute:: factors
+      :type:  dict[str, zipline.pipeline.factors.Factor]
+      :value: None
+
+
+
+   .. py:method:: __call__()
+
+      Returns a :class:`~zipline.pipeline.Pipeline` from the contained
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :returns:
+
+                A :class:`~zipline.pipeline.Pipeline`
+                    containing the contained :class:`~zipline.pipeline.factors.Factor`.
+      :rtype: ~zipline.pipeline.Pipeline
+
+
+
+   .. py:method:: insert(name, factor)
+
+      Inserts a :class:`~zipline.pipeline.factors.Factor` into the
+      container.
+
+      :param name: The name of the :class:`~zipline.pipeline.factors.Factor`.
+      :type name: str
+      :param factor: The
+                     :class:`~zipline.pipeline.factors.Factor` to insert.
+      :type factor: ~zipline.pipeline.factors.Factor
+
+
+
+   .. py:method:: make()
+
+      Returns a :class:`~zipline.pipeline.Pipeline` from the contained
+      :class:`~zipline.pipeline.factors.Factor`.
+
+      :returns:
+
+                A :class:`~zipline.pipeline.Pipeline`
+                    containing the contained :class:`~zipline.pipeline.factors.Factor`.
+      :rtype: ~zipline.pipeline.Pipeline
+
+
+
+.. py:class:: RSI(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.RSI
+      :parts: 1
+      :private-bases:
+
+
+   Relative Strength Index (RSI) factor.
+
+   This factor computes the RSI for given closing prices over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of closing prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time period for RSI calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod)
+
+      Compute the RSI values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed RSI values.
+      :type out: np.ndarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the RSI.
+      :type timeperiod: int
+
+
+
+.. py:class:: SMA(*args, **kwargs)
+
+   Bases: :py:obj:`zipline.pipeline.factors.CustomFactor`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.factors.SMA
+      :parts: 1
+      :private-bases:
+
+
+   Simple Moving Average (SMA) factor.
+
+   This factor computes the Simple Moving Average for given closing prices
+   over a specified time period.
+
+   .. attribute:: inputs
+
+      The input data for the factor, consisting of closing
+      prices.
+
+      :type: tuple
+
+   .. attribute:: params
+
+      The parameters for the factor, specifically the time
+      period for SMA calculation.
+
+      :type: tuple
+
+
+   .. py:attribute:: inputs
+
+      A tuple of other Terms needed as inputs for ``self``.
+
+
+   .. py:attribute:: params
+      :value: ('timeperiod',)
+
+
+
+   .. py:method:: compute(today, assets, out, close, timeperiod)
+
+      Compute the SMA values.
+
+      :param today: The current date.
+      :type today: pd.Timestamp
+      :param assets: The index of assets for which to compute the factor.
+      :type assets: pd.Index
+      :param out: The output array to store the computed SMA values.
+      :type out: np.ndarray
+      :param close: The closing prices of the assets.
+      :type close: np.ndarray
+      :param timeperiod: The time period over which to compute the SMA.
+      :type timeperiod: int
+
+
+

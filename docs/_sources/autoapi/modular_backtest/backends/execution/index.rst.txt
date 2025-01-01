@@ -1,0 +1,49 @@
+modular_backtest.backends.execution
+===================================
+
+.. py:module:: modular_backtest.backends.execution
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   modular_backtest.backends.execution.execute_order
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+   modular_backtest.backends.execution._
+
+
+Module Contents
+---------------
+
+.. py:function:: execute_order(order)
+
+   Executes an order.
+
+   :param order: The order to execute.
+
+   :returns: The order id of the executed order.
+
+   :raises NotImplementedError: If the order type is not known.
+
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+
+.. py:function:: _(order)
+

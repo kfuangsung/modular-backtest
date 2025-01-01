@@ -1,0 +1,30 @@
+modular_backtest.data.utils
+===========================
+
+.. py:module:: modular_backtest.data.utils
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   modular_backtest.data.utils.get_equity_symbols
+
+
+Module Contents
+---------------
+
+.. py:function:: get_equity_symbols(market = 'america', limit = sys.maxsize)
+
+   Retrieves a list of equity symbols from a specified market.
+
+   :param market: The market to retrieve symbols from. Defaults to "america".
+   :type market: str
+   :param limit: The maximum number of symbols to retrieve. Defaults to sys.maxsize.
+   :type limit: int
+
+   :returns: A list of equity symbols.
+   :rtype: list[str]
+
+

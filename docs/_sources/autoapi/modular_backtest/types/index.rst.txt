@@ -1,0 +1,82 @@
+modular_backtest.types
+======================
+
+.. py:module:: modular_backtest.types
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   modular_backtest.types.RealNumber
+   modular_backtest.types.OrderId
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.types.Context
+
+
+Module Contents
+---------------
+
+.. py:data:: RealNumber
+   :type:  TypeAlias
+   :value: int | float
+
+
+.. py:data:: OrderId
+   :type:  TypeAlias
+   :value: str | None
+
+
+.. py:class:: Context
+
+   Context class for the backtest engine.
+
+   This class is used only for type hints and cannot be used directly. Please use
+   the `context` object passed to `initialize()`, `handle_data()`,
+   `before_trading_start()`, and scheduled functions.
+
+   .. attribute:: recorded_vars
+
+      A dictionary of recorded variables.
+
+   .. attribute:: portfolio
+
+      The portfolio object.
+
+   .. attribute:: account
+
+      The account object.
+
+
+   .. py:method:: __setattr__(name, value)
+      :abstractmethod:
+
+
+
+   .. py:method:: __getattr__(name)
+      :abstractmethod:
+
+
+
+   .. py:property:: recorded_vars
+      :abstractmethod:
+
+
+
+   .. py:property:: portfolio
+      :abstractmethod:
+
+
+
+   .. py:property:: account
+      :abstractmethod:
+
+
+

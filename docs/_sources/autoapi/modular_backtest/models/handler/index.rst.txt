@@ -1,0 +1,108 @@
+modular_backtest.models.handler
+===============================
+
+.. py:module:: modular_backtest.models.handler
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.models.handler.ModelHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: ModelHandler
+
+   A handler class for the components of the trading algorithm.
+
+   This class wraps the components of the trading algorithm and provides a
+   convenient interface to run the algorithm.
+
+   .. attribute:: asset_selection
+
+      The asset selection strategy.
+
+      :type: AssetSelection
+
+   .. attribute:: signal_generation
+
+      The signal generation strategy.
+
+      :type: SignalGeneration
+
+   .. attribute:: portfolio_construction
+
+      The portfolio construction
+      strategy.
+
+      :type: PortfolioConstruction
+
+   .. attribute:: order_execution
+
+      The order execution strategy.
+
+      :type: OrderExecution
+
+   .. attribute:: risk_management
+
+      The risk management strategy.
+
+      :type: RiskManagement
+
+   .. method:: __call__(context, data)
+
+      Runs the algorithm by calling the run method.
+
+   .. method:: run(context, data)
+
+      Runs the algorithm by calling each component's run
+      method.
+      
+
+
+   .. py:attribute:: asset_selection
+      :type:  modular_backtest.models.abstract.AssetSelection
+
+
+   .. py:attribute:: signal_generation
+      :type:  modular_backtest.models.abstract.SignalGeneration
+
+
+   .. py:attribute:: portfolio_construction
+      :type:  modular_backtest.models.abstract.PortfolioConstruction
+
+
+   .. py:attribute:: order_execution
+      :type:  modular_backtest.models.abstract.OrderExecution
+
+
+   .. py:attribute:: risk_management
+      :type:  modular_backtest.models.abstract.RiskManagement
+
+
+   .. py:method:: __call__(context, data)
+
+      Runs the algorithm by calling the run method.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+
+
+
+   .. py:method:: run(context, data)
+
+      Runs the algorithm by calling each component's run method.
+
+      :param context: The context of the algorithm.
+      :type context: Context
+      :param data: The data of the algorithm.
+      :type data: BarData
+
+
+

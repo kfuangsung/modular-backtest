@@ -1,0 +1,127 @@
+modular_backtest.backends.signal
+================================
+
+.. py:module:: modular_backtest.backends.signal
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   modular_backtest.backends.signal.SignalSentiment
+   modular_backtest.backends.signal.Signal
+   modular_backtest.backends.signal.SignalHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: SignalSentiment
+
+   Bases: :py:obj:`enum.IntEnum`
+
+   .. autoapi-inheritance-diagram:: modular_backtest.backends.signal.SignalSentiment
+      :parts: 1
+      :private-bases:
+
+
+   Represents the sentiment of a signal.
+
+
+   .. py:attribute:: POSITIVE
+      :value: 1
+
+
+
+   .. py:attribute:: NEUTRAL
+      :value: 0
+
+
+
+   .. py:attribute:: NEGATIVE
+      :value: -1
+
+
+
+.. py:class:: Signal
+
+   Represents a trading signal.
+
+   A trading signal is a suggestion to buy or sell an asset.
+
+   .. attribute:: asset
+
+      The asset to which the signal refers.
+
+      :type: Asset
+
+   .. attribute:: sentiment
+
+      The sentiment of the signal, i.e. whether it is a buy or sell signal.
+
+      :type: SignalSentiment
+
+
+   .. py:attribute:: asset
+      :type:  modular_backtest.types.Asset
+      :value: None
+
+
+
+   .. py:attribute:: sentiment
+      :type:  SignalSentiment
+      :value: None
+
+
+
+.. py:class:: SignalHandler
+
+   A container for a sequence of `Signal`s.
+
+   .. attribute:: signals
+
+      The sequence of `Signal`s in the container.
+
+      :type: list[Signal]
+
+   :returns: An iterator over the signals in the container.
+   :rtype: Iterator[Signal]
+
+
+   .. py:attribute:: signals
+      :type:  list[Signal]
+      :value: None
+
+
+
+   .. py:method:: __iter__()
+
+      Returns an iterator over the signals in the container.
+
+
+
+   .. py:method:: __len__()
+
+      Returns the number of signals in the container.
+
+
+
+   .. py:method:: is_empty()
+
+      Returns True if there are no signals in the container.
+
+
+
+   .. py:method:: push(signal)
+
+      Adds a signal to the container.
+
+
+
+   .. py:method:: clear()
+
+      Clears all signals from the container.
+
+
+
