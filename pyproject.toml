@@ -30,3 +30,9 @@ version = { attr = "modular_backtest.__version__" }
 
 [project.optional-dependencies]
 docs = ["sphinx-autoapi", "pydata-sphinx-theme"]
+
+[project.urls]
+Homepage = "https://github.com/kfuangsung/modular-backtest"
+Documentation = "https://kfuangsung.github.io/modular-backtest"
+Repository = "https://github.com/kfuangsung/modular-backtest"
+Changelog = "https://github.com/kfuangsung/modular-backtest/blob/main/CHANGELOG.md"
