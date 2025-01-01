@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modular-backtest"
+authors = [{ name = "Kachain Fuangsung" }, { email = "kachain.f@outlook.com" }]
+description = "Backtesting Framework for Algorithmic Trading"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    "numpy >=2, <3",
+    "pandas >=2, <3",
+    "zipline-reloaded >= 3.1",
+    "pydantic >=2, <3",
+    "multimethod >=2, <3",
+    "ta-lib >=0.5",
+    "bottleneck >=1.4",
+    "more-itertools >=10, <11",
+    "tqdm >=4, <5",
+    "yfinance >=0.2.50",
+    "tradingview-screener >=2.5",
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = { attr = "modular_backtest.__version__" }
+
+[project.optional-dependencies]
+docs = ["sphinx-autoapi", "pydata-sphinx-theme"]
