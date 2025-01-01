@@ -9,5 +9,6 @@ more-itertools >=10, <11
 tqdm >=4, <5
 yfinance >=0.2.50
 tradingview-screener >=2.5
+Sphinx>=8, <9
 sphinx-autoapi
 pydata-sphinx-theme
