@@ -6,32 +6,25 @@
 Modular Backtest is backtesting framework for algorithmic trading written in Python, focuses on modularity and resusability. The framework is built on top of [zipline-reloaded](https://github.com/stefan-jansen/zipline-reloaded), a Pythonic algorithmic trading library. 
 It consists of the following modules with according responsibility.
 
-- **Asset selection**
-
+- **Asset selection**<br>
     select the assets to be included in the universe.
 
-- **Signal generation**
-    
+- **Signal generation**<br>
     generate signal sentiment for the given assets.
 
-- **Portfolio construction**
-    
+- **Portfolio construction**<br>
     construct portfolio allocations based on the given signals.
 
-- **Risk managements**
-    
+- **Risk managements**<br>
     adjust the portfolio allocations.
 
-- **Order execution**
-    
+- **Order execution**<br>
     create buy/sell orders responding to the constructed allocations.
 
-- **Data**
-
+- **Data**<br>
     downlod and ingest equity's historical prices via public API. Currently support [Yahoo Finance](https://github.com/ranaroussi/yfinance).
 
-- **Factors**
-
+- **Factors**<br>
     compute statistics and technical indicators used in trading. 
 
 
@@ -47,7 +40,7 @@ pip install modular-backtest
 
 ### Data ingestion 
 
-After installed, add `modular_backtest.data.bundles import yahoo` to `~/.zipline/extension.py` the run
+After installed, add the line `from modular_backtest.data.bundles import yahoo` to `~/.zipline/extension.py` and then run
 ```bash
 zipline ingest -b yahoo-finance
 ```
@@ -83,7 +76,7 @@ res = engine.run(
     start=datetime(2024, 1, 1), end=datetime(2024, 12, 31), bundle=yahoo.NAME
 )
 
-res.data.res.data.portfolio_value
+res.data.portfolio_value
 # |                           |   portfolio_value |
 # |:--------------------------|------------------:|
 # | 2024-01-02 21:00:00+00:00 |          100000   |
@@ -125,7 +118,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/kfuangsung
 
 ## Maintainers
 
-[Modular Backtest](https://github.com/kfuangsung/modular-backtest) is currently maintained by [kfuangsung](https://github.com/kfuangsung) (kachain.f@outlook.com).
+[modular-backtest](https://github.com/kfuangsung/modular-backtest) is currently maintained by [kfuangsung](https://github.com/kfuangsung) (kachain.f@outlook.com).
 
 ## Acknowledgments
 
