@@ -1,0 +1,36 @@
+name: "Sphinx: Render docs"
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+    
+    - name: Setup Python 
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+    
+    - name: Install Dependencies
+      run: | 
+        sudo apt install -y graphviz \
+        && python3 -m pip install -r docs/requirements.txt --user --no-cache-dir
+    
+    - name: Build Sphinx docs
+      run: sphinx-build -b html docs/ docs/_build/ -vaE
+
+    - name: Deploy to GitHub pages
+      uses: peaceiris/actions-gh-pages@v4
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/_build
+        destination_dir: docs
+        enable_jekyll: false
