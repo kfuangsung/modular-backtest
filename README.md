@@ -1,6 +1,6 @@
 # Modular Backtest
 
-![logo](docs/_static/original.png "logo")
+![logo](https://raw.githubusercontent.com/kfuangsung/modular-backtest/refs/heads/main/docs/_static/original.png)
 
 ## About the project
 Modular Backtest is backtesting framework for algorithmic trading written in Python, focuses on modularity and resusability. The framework is built on top of [zipline-reloaded](https://github.com/stefan-jansen/zipline-reloaded), a Pythonic algorithmic trading library. 
