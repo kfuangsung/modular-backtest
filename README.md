@@ -1,4 +1,4 @@
-# Modular Backtest: A Framework for Algorithmic Trading
+# Modular Backtest: A Backtesting Framework for Algorithmic Trading
 
 ![logo](https://raw.githubusercontent.com/kfuangsung/modular-backtest/refs/heads/main/docs/_static/original.png)
 
