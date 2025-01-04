@@ -1,32 +1,33 @@
-# Modular Backtest
+# Modular Backtest: A Framework for Algorithmic Trading
 
 ![logo](https://raw.githubusercontent.com/kfuangsung/modular-backtest/refs/heads/main/docs/_static/original.png)
 
 ## About the project
-Modular Backtest is backtesting framework for algorithmic trading written in Python, focuses on modularity and resusability. The framework is built on top of [zipline-reloaded](https://github.com/stefan-jansen/zipline-reloaded), a Pythonic algorithmic trading library. 
-It consists of the following modules with according responsibility.
+
+Modular Backtest is a Python-based backtesting framework for algorithmic trading, designed with a strong emphasis on modularity and reusability. Built on top of [zipline-reloaded](https://github.com/stefan-jansen/zipline-reloaded), a Pythonic algorithmic trading library, it provides a flexible foundation for developing and testing trading strategies.
+
+The framework is organized into the following modules, each addressing a specific aspect of the backtesting process:
 
 - **Asset selection**<br>
-    select the assets to be included in the universe.
+    Selects the assets to be included in the trading universe.
 
 - **Signal generation**<br>
-    generate signal sentiment for the given assets.
+    Generates sentiment signals for the selected assets.
 
 - **Portfolio construction**<br>
-    construct portfolio allocations based on the given signals.
+    Constructs portfolio allocations based on the generated signals.
 
 - **Risk managements**<br>
-    adjust the portfolio allocations.
+    Adjusts portfolio allocations to manage risk effectively.
 
 - **Order execution**<br>
-    create buy/sell orders responding to the constructed allocations.
+    Creates buy/sell orders based on the constructed allocations.
 
 - **Data**<br>
-    downlod and ingest equity's historical prices via public API. Currently support [Yahoo Finance](https://github.com/ranaroussi/yfinance).
+    Downloads and ingests historical equity price data via public APIs. Currently, it supports [Yahoo Finance](https://github.com/ranaroussi/yfinance).
 
 - **Factors**<br>
-    compute statistics and technical indicators used in trading. 
-
+    Computes statistics and technical indicators commonly used in trading.
 
 
 ## Getting started
