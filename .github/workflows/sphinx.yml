@@ -20,12 +20,8 @@ jobs:
 
     - name: Compile TA-Lib
       run: |
-        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
-        tar -xzf ta-lib-0.4.0-src.tar.gz
-        cd ta-lib/
-        sudo ./configure
-        sudo make
-        sudo make install
+        wget https://github.com/ta-lib/ta-lib/releases/download/v0.6.2/ta-lib_0.6.2_amd64.deb
+        sudo dpkg -i ta-lib_0.6.2_amd64.deb
     
     - name: Install Dependencies
       run: | 
