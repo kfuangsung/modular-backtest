@@ -32,6 +32,9 @@ The framework is organized into the following modules, each addressing a specifi
 
 ## Getting started
 
+### Prerequisite
+
+modular-backtest requires [ta-lib-python](https://github.com/TA-Lib/ta-lib-python) version 0.6 or higher. This version supports TA-Lib 0.6.x and is compatible with NumPy 2.
 
 ### Installation
 
